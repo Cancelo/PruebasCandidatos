@@ -5,6 +5,12 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PC3Random", "PC3Random\PC3Random.csproj", "{285524A6-1CD8-43F0-86B1-5DE84582AAAD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PC1SQL", "PC1SQL", "{66E8B75E-86FE-4A4E-9CCD-7B38C6DA6580}"
+	ProjectSection(SolutionItems) = preProject
+		PC1SQL\instnwnd.sql = PC1SQL\instnwnd.sql
+		PC1SQL\queries.sql = PC1SQL\queries.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
