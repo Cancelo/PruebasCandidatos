@@ -8,8 +8,7 @@ namespace PC3Random
 {
     public class Program
     {
-        private static int totalThreads = 1;
-        private static int totalNumbers = 10000000 / totalThreads;
+        private static int totalNumbers = 10000000;
         private static HashSet<int> numbers = new HashSet<int>(totalNumbers);
         private static string path = "";
 
