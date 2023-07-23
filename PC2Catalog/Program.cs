@@ -117,31 +117,45 @@ namespace PC2Catalog
 
         private static void CreateJSON(List<Category> listCategory)
         {
-            JsonSerializerOptions options = new JsonSerializerOptions();
-            options.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
-
-            string json = JsonSerializer.Serialize(listCategory, options);
-
-            File.WriteAllText(filenameJSON, json);
-
-            if (File.Exists(filenameJSON))
+            try
             {
-                FileInfo file = new FileInfo(filenameJSON);
-                Console.WriteLine($"Creado JSON: {file.FullName}");
+                JsonSerializerOptions options = new JsonSerializerOptions();
+                options.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
+
+                string json = JsonSerializer.Serialize(listCategory, options);
+
+                File.WriteAllText(filenameJSON, json);
+
+                if (File.Exists(filenameJSON))
+                {
+                    FileInfo file = new FileInfo(filenameJSON);
+                    Console.WriteLine($"Creado JSON: {file.FullName}");
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine($"Error al crear el archivo {filenameJSON} ({ex.Message})");
             }
         }
         private static void CreateXML(List<Category> listCategory)
         {
-            XmlSerializer writer = new XmlSerializer(typeof(List<Category>));
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(filenameXML))
+            try
             {
-                writer.Serialize(file, listCategory);
-            }
+                XmlSerializer writer = new XmlSerializer(typeof(List<Category>));
+                using (System.IO.StreamWriter file = new System.IO.StreamWriter(filenameXML))
+                {
+                    writer.Serialize(file, listCategory);
+                }
 
-            if (File.Exists(filenameXML))
+                if (File.Exists(filenameXML))
+                {
+                    FileInfo file = new FileInfo(filenameXML);
+                    Console.WriteLine($"Creado XML: {file.FullName}");
+                }
+            }
+            catch(Exception ex)
             {
-                FileInfo file = new FileInfo(filenameXML);
-                Console.WriteLine($"Creado XML: {file.FullName}");
+                Console.WriteLine($"Error al crear el archivo {filenameXML} ({ex.Message})");
             }
         }
     }
